@@ -16,7 +16,7 @@ export default function CaseStudiesPage() {
             <main className="flex-1">
 
                 {/* Hero Section */}
-                <section className={`w-full py-12 md:py-24 lg:py-32 ${heroSection.gradient}`}>
+                <section className={`w-full pt-12 pb-8 md:pt-24 lg:pt-32 ${heroSection.gradient}`}>
                     <div className="container mx-auto max-w-7xl px-4 md:px-6">
                         <div className="flex flex-col items-center justify-center space-y-4 text-center">
                             <div className="space-y-2">
@@ -32,7 +32,7 @@ export default function CaseStudiesPage() {
                 </section>
 
                 {/* Featured Case Study */}
-                <section className="w-full py-12 md:py-24 lg:py-32">
+                <section className="w-full py-12">
                     <div className="container mx-auto max-w-7xl px-4 md:px-6">
                         <div className="grid items-center gap-6 lg:grid-cols-2 lg:gap-12">
                             {/* Left column: text */}
@@ -107,16 +107,6 @@ export default function CaseStudiesPage() {
                                         priority
                                     />
                                     <div className="absolute inset-0 rounded-xl bg-gradient-to-t from-background/20 to-transparent" />
-
-                                    {/* Results Badge */}
-                                    <div className="absolute -right-4 -top-4 rounded-full bg-green-500 px-3 py-1 text-xs font-medium text-white">
-                                        {fc.media.overlays.liveLabel}
-                                    </div>
-
-                                    {/* Revenue Impact */}
-                                    <div className="absolute bottom-4 left-4 rounded-lg bg-background/90 px-3 py-2 text-sm font-medium text-foreground backdrop-blur-sm">
-                                        {fc.media.overlays.revenueImpact}
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -146,7 +136,7 @@ export default function CaseStudiesPage() {
                                 return (
                                     <Card className="h-full" key={card.id}>
                                         <CardHeader>
-                                            <div className="flex items-center justify-between">
+                                            <div className="flex items-center justify-between pb-4">
                                                 <Badge variant="secondary" className="w-fit">
                                                     <Icon className="w-3 h-3 mr-1" aria-hidden="true" />
                                                     {card.category}

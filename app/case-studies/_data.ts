@@ -1,72 +1,64 @@
 // app/case-studies/_data.ts
 import type { LucideIcon } from "lucide-react";
-import { BarChart3, Zap, TrendingUp, Check, ShoppingCart, Building2, Eye, ArrowRight, Play } from "lucide-react";
+import { BarChart3, Zap, TrendingUp, Check, ShoppingCart, Building2, Eye, ArrowRight, Play, Package } from "lucide-react";
 
 // Hero / Intro section
 export const heroSection = {
     heading: "Real Results from Real Businesses",
     subheading:
-      "Discover how companies across industries have transformed their content performance with optml.ai's AI-powered optimization platform.",
+        "Discover how companies across industries have transformed their content performance with optml.ai's AI-powered optimization platform.",
     gradient: "bg-gradient-to-br from-primary/5 via-background to-secondary/5",
-  } as const;
+} as const;
 
 // Featured
 export type FeaturedMetric = {
-  label: string;
-  value: string;
-  /** Optional: if you later show a Progress bar */
-  progress?: number; // 0..100
+    label: string;
+    value: string;
+    /** Optional: if you later show a Progress bar */
+    progress?: number; // 0..100
 };
 
 export type FeaturedCaseStudyData = {
-  badge: { label: string; icon: LucideIcon };
-  title: { before: string; highlight: string; after?: string };
-  description: string;
-  metrics: FeaturedMetric[];
-  ctas: {
-    primary: { label: string; href: string; icon?: LucideIcon };
-    secondary?: { label: string; href?: string; icon?: LucideIcon; variant?: "outline" | "default" };
-  };
-  media: {
-    src: string;
-    alt: string;
-    width: number;
-    height: number;
-    overlays: {
-      liveLabel: string;
-      revenueImpact: string;
+    badge: { label: string; icon: LucideIcon };
+    title: { before: string; highlight: string; after?: string };
+    description: string;
+    metrics: FeaturedMetric[];
+    ctas: {
+        primary: { label: string; href: string; icon?: LucideIcon };
+        secondary?: { label: string; href?: string; icon?: LucideIcon; variant?: "outline" | "default" };
     };
-  };
+    media: {
+        src: string;
+        alt: string;
+        width: number;
+        height: number;
+    };
 };
 
 export const featuredCaseStudy: FeaturedCaseStudyData = {
-  badge: { label: "Featured Case Study", icon: Building2 },
-  title: { before: "How Bose Increased RoAS by ", highlight: "24%" },
-  description:
-    "Bose, a premium audio equipment manufacturer, used optml.ai to optimize their advertising campaigns across three online retailers and saw remarkable improvements in return on ad spend within 3 months.",
-  metrics: [
-    { label: "RoAS Improvement", value: "24% increase", progress: 24 },
-    { label: "Ad Visuals Optimized", value: "120 creatives", progress: 85 },
-    { label: "Online Retailers", value: "3 platforms", progress: 100 },
-  ],
-  ctas: {
-    primary: {
-      label: "Read Full Case Study",
-      href: "/case-studies/bose-roas-context-optimisation",
-      icon: ArrowRight,
+    badge: { label: "Featured Case Study", icon: Building2 },
+    title: { before: "How Bose Increased RoAS by ", highlight: "24%" },
+    description:
+        "Bose, a premium audio equipment manufacturer, used optml.ai to optimize their advertising campaigns across three online retailers and saw remarkable improvements in return on ad spend within 3 months.",
+    metrics: [
+        { label: "RoAS Improvement", value: "24% increase", progress: 24 },
+        { label: "Ad Visuals Optimized", value: "120 creatives", progress: 85 },
+        { label: "Online Retailers", value: "3 platforms", progress: 100 },
+    ],
+    ctas: {
+        primary: {
+            label: "Read Full Case Study",
+            href: "/case-studies/bose-roas-context-optimisation",
+            icon: ArrowRight,
+        },
+        secondary: { label: "Watch Video", icon: Play, variant: "outline" },
     },
-    secondary: { label: "Watch Video", icon: Play, variant: "outline" },
-  },
-  media: {
-    src: "/ai-content-optimization-dashboard-with-heatmaps-an.jpg",
-    alt: "Bose Dashboard Results",
-    width: 600,
-    height: 400,
-    overlays: {
-      liveLabel: "Live Results",
-      revenueImpact: "Revenue Impact: $1.2M in 3 months",
+    media: {
+        src: "/ai-content-optimization-dashboard-with-heatmaps-an.jpg",
+        alt: "Bose Dashboard Results",
+        width: 600,
+        height: 400
     },
-  },
 };
 
 
@@ -117,20 +109,20 @@ export const successStories = {
             cta: { label: "View Case Study", href: "/case-studies/shopfast" },
         },
         {
-            id: "saas",
-            category: "SaaS",
-            categoryIcon: Building2,
-            primaryDelta: { value: "+89%", colorClass: "text-blue-600" },
-            title: "CloudSync",
+            id: "consumer-goods",
+            category: "Consumer Goods",
+            categoryIcon: Package,
+            primaryDelta: { value: "+86%", colorClass: "text-blue-600" },
+            title: "Unilever - Lux Botanicals",
             description:
-                "B2B software company streamlined their signup process and improved trial-to-paid conversion rates.",
+                "Major consumer goods brand optimized in-store digital advertising to drive awareness and sales for new product range across 30 supermarket locations.",
             kpis: [
-                { label: "Trial Signups", value: "+89%", colorClass: "text-blue-600" },
-                { label: "Paid Conversions", value: "+34%", colorClass: "text-blue-600" },
-                { label: "Form Completion", value: "+78%", colorClass: "text-blue-600" },
+                { label: "Lux brand sales", value: "+86%", colorClass: "text-blue-600" },
+                { label: "New range sales", value: "+56%", colorClass: "text-blue-600" },
+                { label: "Relevant views", value: "+10%", colorClass: "text-blue-600" },
             ],
             quote:
-                '"The heatmaps revealed user behavior patterns we never knew existed. It\'s like having a crystal ball for content performance."',
+                '"The halo effect showed us that our ads worked, but AI-driven optimization revealed exactly how to make them convert better."',
             cta: { label: "View Case Study", href: "/case-studies/cloudsync" },
         },
         {
@@ -203,7 +195,7 @@ export const methodology = {
 } as const;
 
 
-
+// CTA
 export const ctaData = {
     title: "Ready to Join Our Success Stories?",
     description: "Start your free trial today and see how optml.ai can transform your content performance in just 30 days.",

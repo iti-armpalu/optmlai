@@ -17,6 +17,7 @@ import {
     Users,
     Download,
     Activity,
+    Calendar,
 } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
@@ -31,6 +32,81 @@ export default function ProductPage() {
 
             <main className="flex-1">
                 {/* Hero Section */}
+                <section className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-br from-primary/5 via-background to-secondary/5">
+                    <div className="container mx-auto max-w-7xl px-4 md:px-6">
+                        <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
+                            <div className="flex flex-col justify-center space-y-4">
+                                <div className="space-y-2">
+                                    <Badge variant="secondary" className="w-fit">
+                                        <Download className="w-3 h-3 mr-1" />
+                                        AI-Powered Content Optimization
+                                    </Badge>
+                                    <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
+                                        Content Optimization Needs Context
+                                    </h1>
+                                    <p className="max-w-[600px] text-muted-foreground md:text-xl">
+                                        Optml.ai is the first technology that optimizes ads through the lens of human behavior.
+                                        Instead of blindly tweaking creative elements, it analyzes the viewer’s context, attention, and emotion to deliver ads that perform, not just appear.
+                                    </p>
+                                </div>
+                                <div className="flex flex-col gap-2 min-[400px]:flex-row">
+                                    <Button size="lg" className="gap-2" asChild>
+                                        <Link href="/signup">
+                                            Install Extension
+                                            <Download className="w-4 h-4" />
+                                        </Link>
+                                    </Button>
+                                    <div className="flex flex-col gap-2 min-[400px]:flex-row">
+                                        <Button variant="outline" size="lg" className="gap-2 bg-transparent">
+                                            <Play className="w-4 h-4" />
+                                            Watch Demo
+                                        </Button>
+                                        <Button
+                                            variant="outline"
+                                            size="lg"
+                                            className="gap-2 bg-transparent"
+                                            onClick={() => (window.location.href = "/schedule-demo")}
+                                        >
+                                            <Calendar className="w-4 h-4" />
+                                            Schedule Demo
+                                        </Button>
+                                    </div>
+                                </div>
+                                <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                                    <div className="flex items-center gap-1">
+                                        <Check className="w-4 h-4 text-green-500" />
+                                        Free 14-day trial
+                                    </div>
+                                    <div className="flex items-center gap-1">
+                                        <Check className="w-4 h-4 text-green-500" />
+                                        Works on any website
+                                    </div>
+                                    <div className="flex items-center gap-1">
+                                        <Check className="w-4 h-4 text-green-500" />
+                                        No coding required
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="flex items-center justify-center">
+                                <div className="relative">
+                                    <Image
+                                        src="/ai-content-optimization-dashboard-with-heatmaps-an.jpg"
+                                        alt="optml.ai Browser Extension Interface"
+                                        width={600}
+                                        height={400}
+                                        className="mx-auto aspect-video overflow-hidden rounded-xl object-cover shadow-2xl"
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent rounded-xl" />
+                                    {/* Browser Extension Badge */}
+                                    <div className="absolute -top-4 -left-4 bg-primary text-primary-foreground text-xs px-3 py-1 rounded-full font-medium">
+                                        Browser Extension
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
                 <section className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-br from-primary/5 via-background to-secondary/5">
                     <div className="container mx-auto max-w-7xl px-4 md:px-6 sm:px-6 lg:px-8">
                         <div className="text-center space-y-8">
