@@ -3,7 +3,7 @@
 
 
 import { redirect } from "next/navigation";
-import { cookies } from "next/headers";
+// import { cookies } from "next/headers";
 import { signInSchema, signUpSchema } from "@/lib/validations/auth";
 import { createSession, deleteSession } from "@/lib/session";
 
@@ -11,6 +11,7 @@ import { createSession, deleteSession } from "@/lib/session";
 // Example: replace with your real DB calls
 async function findUserByEmail(email: string) {
     // TODO query your database
+    console.log(email);
     return null as null | { id: string; email: string; passwordHash: string; name?: string };
 }
 async function createUser(input: { name: string; email: string; password: string }) {
@@ -19,6 +20,7 @@ async function createUser(input: { name: string; email: string; password: string
 }
 async function verifyPassword(_hash: string, _password: string) {
     // TODO compare hash with password (e.g., bcrypt.compare)
+    console.log(_hash, _password);
     return true;
 }
 

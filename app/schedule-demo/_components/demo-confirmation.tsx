@@ -40,7 +40,7 @@ export function DemoConfirmation({ event }: DemoConfirmationProps) {
 
       <div>
         <h2 className="text-2xl font-bold text-gray-900 mb-2">Demo Scheduled Successfully!</h2>
-        <p className="text-gray-600">We've sent you a calendar invite with all the details.</p>
+        <p className="text-gray-600">Weve sent you a calendar invite with all the details.</p>
       </div>
 
       <div className="bg-gray-50 rounded-lg p-6 space-y-4">

@@ -2,7 +2,6 @@
 import Image from "next/image"
 import Link from "next/link"
 import {
-    BarChart3,
     MousePointer,
     Zap,
     Check,
@@ -266,37 +265,6 @@ export default function ProductPage() {
                                     </div>
                                 </CardContent>
                             </Card>
-                        </div>
-
-                        {/* Example Usage */}
-                        <div className="mt-16 bg-background rounded-lg p-8 border">
-                            <h3 className="text-xl font-semibold mb-4 text-center">Example: Ask Your Data Questions</h3>
-                            <div className="grid md:grid-cols-2 gap-8 items-center">
-                                <div className="space-y-4">
-                                    <div className="bg-muted rounded-lg p-4">
-                                        <p className="text-sm font-medium mb-2">👤 You ask:</p>
-                                        <p className="text-sm">"Which section of my landing page gets the most engagement?"</p>
-                                    </div>
-                                    <div className="bg-primary/5 rounded-lg p-4">
-                                        <p className="text-sm font-medium mb-2 flex items-center gap-2">
-                                            <Brain className="w-4 h-4 text-primary" />
-                                            AI responds:
-                                        </p>
-                                        <p className="text-sm">
-                                            "Your hero section receives 45% of user attention, with the CTA button getting 23% of all clicks.
-                                            Consider moving your testimonials higher up as they have high engagement but low visibility."
-                                        </p>
-                                    </div>
-                                </div>
-                                <div className="flex justify-center">
-                                    <div className="bg-gradient-to-br from-primary/10 to-secondary/10 rounded-lg p-6 text-center">
-                                        <BarChart3 className="w-16 h-16 text-primary mx-auto mb-4" />
-                                        <p className="text-sm text-muted-foreground">
-                                            Get instant, actionable insights from your content data
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </section>

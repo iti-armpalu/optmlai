@@ -176,7 +176,7 @@ export default function HomePage() {
                             <Brain className="w-3 h-3 text-primary" />
                           </div>
                           <div className="bg-primary/5 rounded-lg p-2 text-sm">
-                            People will notice your ad, but they won't buy the product because your usage moment isn't
+                            People will notice your ad, but they wont buy the product because your usage moment isnt
                             noticeable.
                           </div>
                         </div>

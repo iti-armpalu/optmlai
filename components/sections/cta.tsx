@@ -14,7 +14,7 @@ interface CTAProps {
   disclaimer: string
 }
 
-export function CTA({ title, description, buttonText, buttonLink, demoButtonText, disclaimer }: CTAProps) {
+export function CTA({ title, description, buttonText, buttonLink, disclaimer }: CTAProps) {
   return (
     <section className="w-full py-12 md:py-24 lg:py-32 bg-primary text-primary-foreground">
       <div className="container mx-auto max-w-7xl px-4 md:px-6">

@@ -617,7 +617,7 @@ export function SampleReport() {
                     <h4 className="font-medium mb-1">Simplify text hierarchy</h4>
                     <div className="text-sm text-muted-foreground mb-2">
                       Reduce text by 30% and increase font size for the main headline. Instagram users scan quickly -
-                      focus on one key message: 'LIMITED EDITION' with larger, bolder text.
+                      focus on one key message: LIMITED EDITION with larger, bolder text.
                     </div>
                     <div className="flex items-center gap-2">
                       <Badge variant="secondary" className="bg-yellow-100 text-yellow-700">
