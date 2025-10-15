@@ -1,6 +1,6 @@
 // app/case-studies/_data.ts
 import type { LucideIcon } from "lucide-react";
-import { BarChart3, Zap, TrendingUp, Check, ShoppingCart, Building2, Eye, ArrowRight, Play, Package } from "lucide-react";
+import { BarChart3, Zap, TrendingUp, Check, ShoppingCart, Building2, ArrowRight, Play, Package, Store } from "lucide-react";
 
 // Hero / Intro section
 export const heroSection = {
@@ -21,11 +21,11 @@ export type FeaturedMetric = {
 export type FeaturedCaseStudyData = {
     badge: { label: string; icon: LucideIcon };
     title: { before: string; highlight: string; after?: string };
+    slug: string;
     description: string;
     metrics: FeaturedMetric[];
     ctas: {
-        primary: { label: string; href: string; icon?: LucideIcon };
-        secondary?: { label: string; href?: string; icon?: LucideIcon; variant?: "outline" | "default" };
+        primary: { label: string; icon?: LucideIcon }
     };
     media: {
         src: string;
@@ -38,6 +38,7 @@ export type FeaturedCaseStudyData = {
 export const featuredCaseStudy: FeaturedCaseStudyData = {
     badge: { label: "Featured Case Study", icon: Building2 },
     title: { before: "How Bose Increased RoAS by ", highlight: "24%" },
+    slug: "bose-roas-context-optimisation",
     description:
         "Bose, a premium audio equipment manufacturer, used optml.ai to optimize their advertising campaigns across three online retailers and saw remarkable improvements in return on ad spend within 3 months.",
     metrics: [
@@ -48,10 +49,8 @@ export const featuredCaseStudy: FeaturedCaseStudyData = {
     ctas: {
         primary: {
             label: "Read Full Case Study",
-            href: "/case-studies/bose-roas-context-optimisation",
             icon: ArrowRight,
-        },
-        secondary: { label: "Watch Video", icon: Play, variant: "outline" },
+        }
     },
     media: {
         src: "/ai-content-optimization-dashboard-with-heatmaps-an.jpg",
@@ -80,6 +79,7 @@ export type CaseStudy = {
     categoryIcon: LucideIcon;
     primaryDelta: PrimaryDelta;
     title: string;
+    slug: string;
     description: string;
     kpis: KPI[];
     quote: string;
@@ -92,28 +92,12 @@ export const successStories = {
         "From e-commerce to healthcare, see how optml.ai drives measurable results for businesses of all sizes.",
     cards: [
         {
-            id: "ecommerce",
-            category: "E-commerce",
-            categoryIcon: ShoppingCart,
-            primaryDelta: { value: "+156%", colorClass: "text-green-600" },
-            title: "ShopFast",
-            description:
-                "Online retailer optimized product pages and checkout flow, resulting in massive conversion improvements.",
-            kpis: [
-                { label: "Conversion Rate", value: "+156%", colorClass: "text-green-600" },
-                { label: "Cart Abandonment", value: "-67%", colorClass: "text-green-600" },
-                { label: "Revenue Impact", value: "$2.4M" },
-            ],
-            quote:
-                '"optml.ai helped us identify exactly where customers were dropping off. The AI insights were spot-on."',
-            cta: { label: "View Case Study", href: "/case-studies/shopfast" },
-        },
-        {
             id: "consumer-goods",
             category: "Consumer Goods",
             categoryIcon: Package,
             primaryDelta: { value: "+86%", colorClass: "text-blue-600" },
             title: "Unilever - Lux Botanicals",
+            slug: "unilever-lux-botanicals",
             description:
                 "Major consumer goods brand optimized in-store digital advertising to drive awareness and sales for new product range across 30 supermarket locations.",
             kpis: [
@@ -123,24 +107,43 @@ export const successStories = {
             ],
             quote:
                 '"The halo effect showed us that our ads worked, but AI-driven optimization revealed exactly how to make them convert better."',
-            cta: { label: "View Case Study", href: "/case-studies/cloudsync" },
+            cta: { label: "View Case Study" },
         },
         {
-            id: "media",
-            category: "Media",
-            categoryIcon: Eye,
-            primaryDelta: { value: "+124%", colorClass: "text-purple-600" },
-            title: "NewsHub",
+            id: "retail",
+            category: "Retail",
+            categoryIcon: Store,
+            primaryDelta: { value: "+42%", colorClass: "text-purple-600" },
+            title: "Spinneys Supermarkets",
+            slug: "spinneys-supermarket",
             description:
-                "Digital media company optimized article layouts and increased reader engagement significantly.",
+                "Major supermarket chain optimized in-store magazine promotions for frozen vegetables using AI-powered copy testing to drive product sales across 30 locations.",
             kpis: [
-                { label: "Time on Page", value: "+124%", colorClass: "text-purple-600" },
-                { label: "Scroll Depth", value: "+89%", colorClass: "text-purple-600" },
-                { label: "Ad Revenue", value: "+92%", colorClass: "text-purple-600" },
+                { label: "Frozen vegetable sales", value: "+42%", colorClass: "text-purple-600" },
+                { label: "Content engagement", value: "+28%", colorClass: "text-purple-600" },
+                { label: "Campaign ROI", value: "3.2x", colorClass: "text-purple-600" },
             ],
             quote:
-                '"Understanding reading patterns helped us place content and ads more effectively."',
-            cta: { label: "View Case Study", href: "/case-studies/newshub" },
+                '"Pre-testing copy with behavioural analysis showed us exactly which messages would resonate before we launched the campaign."',
+            cta: { label: "View Case Study" },
+        },
+        {
+            id: "cards-and-gifts",
+            category: "Cards & Gifts",
+            categoryIcon: ShoppingCart,
+            primaryDelta: { value: "+3x", colorClass: "text-green-600" },
+            title: "National Card Retailer",
+            slug: "national-card-retailer",
+            description:
+                "Leading greeting card retailer pre-tested 30 ads using AI-powered saliency testing, optimizing for both in-store and online channels before launch.",
+            kpis: [
+                { label: "Campaign 1 RoAS Uplift", value: "3x", colorClass: "text-green-600" },
+                { label: "Campaign 2 RoAS Uplift", value: "+37%", colorClass: "text-green-600" },
+                { label: "Ads Pre-Tested", value: "30 creatives" },
+            ],
+            quote:
+                '"optml.ai helped us identify exactly where customers were dropping off. The AI insights were spot-on."',
+            cta: { label: "View Case Study" },
         },
     ] satisfies CaseStudy[],
 } as const;
@@ -193,6 +196,45 @@ export const methodology = {
         },
     ] satisfies MethodologyStep[],
 } as const;
+
+export const caseStudies = [
+    {
+        slug: "bose-roas-context-optimisation",
+        title: "How Bose Increased RoAS by 24%",
+        description:
+            "Bose used optml.ai to optimize campaigns and achieved remarkable performance improvements.",
+    },
+    {
+        slug: "unilever-lux-botanicals",
+        title: "Unilever - Lux Botanicals",
+        description:
+            "Major consumer goods brand optimized in-store digital advertising to drive awareness and sales for new product range across 30 supermarket locations.",
+
+    },
+    {
+        slug: "national-card-retailer",
+        title: "National Card Retailer",
+        description:
+            "Leading greeting card retailer pre-tested 30 ads using AI-powered saliency testing, optimizing for both in-store and online channels before launch.",
+    },
+
+    {
+        slug: "spinneys-supermarket",
+        title: "Spinneys Supermarkets",
+        description:
+            "Major supermarket chain optimized in-store magazine promotions for frozen vegetables using AI-powered copy testing to drive product sales across 30 locations.",
+    },
+
+
+
+
+
+
+
+] as const;
+
+
+
 
 
 // CTA

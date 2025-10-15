@@ -74,23 +74,12 @@ export default function CaseStudiesPage() {
                                 {/* CTAs */}
                                 <div className="flex flex-col gap-2 min-[400px]:flex-row">
                                     <Button size="lg" className="gap-2" asChild>
-                                        <Link href={fc.ctas.primary.href}>
+                                        <Link href={`/case-studies/${fc.slug}`}>
                                             {fc.ctas.primary.label}
                                             {fc.ctas.primary.icon ? (
                                                 <fc.ctas.primary.icon className="h-4 w-4" aria-hidden="true" />
                                             ) : null}
                                         </Link>
-                                    </Button>
-
-                                    <Button
-                                        variant={fc.ctas.secondary?.variant ?? "outline"}
-                                        size="lg"
-                                        className="gap-2 bg-transparent"
-                                    >
-                                        {fc.ctas.secondary?.icon ? (
-                                            <fc.ctas.secondary.icon className="h-4 w-4" aria-hidden="true" />
-                                        ) : null}
-                                        {fc.ctas.secondary?.label}
                                     </Button>
                                 </div>
                             </div>
@@ -141,9 +130,9 @@ export default function CaseStudiesPage() {
                                                     <Icon className="w-3 h-3 mr-1" aria-hidden="true" />
                                                     {card.category}
                                                 </Badge>
-                                                <div className={`text-2xl font-bold ${card.primaryDelta.colorClass ?? ""}`}>
+                                                {/* <div className={`text-2xl font-bold ${card.primaryDelta.colorClass ?? ""}`}>
                                                     {card.primaryDelta.value}
-                                                </div>
+                                                </div> */}
                                             </div>
 
                                             <CardTitle>{card.title}</CardTitle>
@@ -164,19 +153,16 @@ export default function CaseStudiesPage() {
                                                 ))}
                                             </div>
 
-                                            <blockquote className="text-sm italic text-muted-foreground">
+                                            <blockquote className="text-sm italic text-muted-foreground min-h-[56px] md:min-h-[80px]">
                                                 {card.quote}
                                             </blockquote>
 
-                                            {card.cta.href ? (
-                                                <Button asChild variant="outline" size="sm" className="w-full bg-transparent">
-                                                    <Link href={card.cta.href}>{card.cta.label}</Link>
-                                                </Button>
-                                            ) : (
-                                                <Button variant="outline" size="sm" className="w-full bg-transparent">
-                                                    {card.cta.label}
-                                                </Button>
-                                            )}
+
+                                            <Button asChild variant="outline" size="sm" className="w-full bg-transparent">
+                                                <Link href={`/case-studies/${card.slug}`}>{card.cta.label}</Link>
+                                            </Button>
+
+
                                         </CardContent>
                                     </Card>
                                 );

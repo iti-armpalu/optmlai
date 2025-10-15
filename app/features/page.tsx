@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { coreFeaturesSection, ctaData, featureCategoriesSection, featureComparison, featuresHero } from "./_data"
 import { CTA } from "@/components/sections/cta"
+import FeatureCard from "@/components/feature-card"
 
 export default function FeaturesPage() {
   const h = featuresHero;
@@ -14,7 +15,6 @@ export default function FeaturesPage() {
 
   return (
     <div className="flex flex-col min-h-screen">
-
       <main className="flex-1">
 
         {/* Hero Section */}
@@ -73,58 +73,71 @@ export default function FeaturesPage() {
               {cf.cards.map((card) => {
                 const Icon = card.icon;
                 return (
-                  <Card className="relative overflow-hidden" key={card.id}>
-                    <CardHeader>
-                      <div className="flex items-center gap-2">
-                        <div className="rounded-lg bg-primary/10 p-2">
-                          <Icon className="h-6 w-6 text-primary" aria-hidden="true" />
-                        </div>
-                        <Badge variant={card.badge.variant ?? "outline"}>{card.badge.label}</Badge>
-                      </div>
+                  // <Card className="relative overflow-hidden" key={card.id}>
+                  //   <CardHeader>
+                  //     <div className="flex items-center gap-2">
+                  //       <div className="rounded-lg bg-primary/10 p-2">
+                  //         <Icon className="h-6 w-6 text-primary" aria-hidden="true" />
+                  //       </div>
+                  //       <Badge variant={card.badge.variant ?? "outline"}>{card.badge.label}</Badge>
+                  //     </div>
 
-                      <CardTitle className="text-xl">{card.title}</CardTitle>
-                      {/* Align descriptions across cards */}
-                      <CardDescription className="min-h-[48px]">
-                        {card.description}
-                      </CardDescription>
-                    </CardHeader>
+                  //     <CardTitle className="text-xl">{card.title}</CardTitle>
+                  //     {/* Align descriptions across cards */}
+                  //     <CardDescription className="min-h-[48px]">
+                  //       {card.description}
+                  //     </CardDescription>
+                  //   </CardHeader>
 
-                    <CardContent className="space-y-4">
-                      <ul className="space-y-2 text-sm">
-                        {card.bullets.map((b, idx) => {
-                          const BulletIcon = b.icon;
-                          return (
-                            <li className="flex items-center gap-2" key={idx}>
-                              {BulletIcon ? (
-                                <BulletIcon
-                                  className={`h-4 w-4 ${b.iconClass ?? ""}`}
-                                  aria-hidden="true"
-                                />
-                              ) : null}
-                              {b.label}
-                            </li>
-                          );
-                        })}
-                      </ul>
+                  //   <CardContent className="space-y-4">
+                  //     <ul className="space-y-2 text-sm">
+                  //       {card.bullets.map((b, idx) => {
+                  //         const BulletIcon = b.icon;
+                  //         return (
+                  //           <li className="flex items-center gap-2" key={idx}>
+                  //             {BulletIcon ? (
+                  //               <BulletIcon
+                  //                 className={`h-4 w-4 ${b.iconClass ?? ""}`}
+                  //                 aria-hidden="true"
+                  //               />
+                  //             ) : null}
+                  //             {b.label}
+                  //           </li>
+                  //         );
+                  //       })}
+                  //     </ul>
 
-                      <div className="pt-4">
-                        {card.cta.href ? (
-                          <Button
-                            asChild
-                            variant={card.cta.variant ?? "outline"}
-                            size="sm"
-                            className="w-full bg-transparent"
-                          >
-                            <Link href={card.cta.href}>{card.cta.label}</Link>
-                          </Button>
-                        ) : (
-                          <Button variant={card.cta.variant ?? "outline"} size="sm" className="w-full bg-transparent">
-                            {card.cta.label}
-                          </Button>
-                        )}
-                      </div>
-                    </CardContent>
-                  </Card>
+                  //     <div className="pt-4">
+                  //       {card.cta.href ? (
+                  //         <Button
+                  //           asChild
+                  //           variant={card.cta.variant ?? "outline"}
+                  //           size="sm"
+                  //           className="w-full bg-transparent"
+                  //         >
+                  //           <Link href={card.cta.href}>{card.cta.label}</Link>
+                  //         </Button>
+                  //       ) : (
+                  //         <Button variant={card.cta.variant ?? "outline"} size="sm" className="w-full bg-transparent">
+                  //           {card.cta.label}
+                  //         </Button>
+                  //       )}
+                  //     </div>
+                  //   </CardContent>
+                  // </Card>
+
+                  <FeatureCard
+                    key={card.id}
+                    icon={Icon}
+                    title={card.title}
+                    description={card.description}
+                    bullets={card.bullets}
+                    badge={card.badge}           // present on features page
+                    cta={card.cta}               // present on features page
+                    descriptionMinHeightClass="min-h-[48px]"
+                  />
+
+
                 );
               })}
             </div>
