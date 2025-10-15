@@ -1,4 +1,4 @@
-import { BarChart3, MousePointer, Zap, MessageCircle, Brain, TrendingUp, Sparkles, type LucideIcon } from "lucide-react"
+import { Zap, MessageCircle, Brain, TrendingUp, Sparkles, type LucideIcon } from "lucide-react"
 
 export interface Feature {
   icon: LucideIcon

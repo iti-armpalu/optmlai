@@ -1,6 +1,6 @@
 // app/case-studies/_data.ts
 import type { LucideIcon } from "lucide-react";
-import { BarChart3, Zap, TrendingUp, Check, ShoppingCart, Building2, ArrowRight, Play, Package, Store } from "lucide-react";
+import { BarChart3, Zap, TrendingUp, Check, ShoppingCart, Building2, ArrowRight, Package, Store } from "lucide-react";
 
 // Hero / Intro section
 export const heroSection = {
