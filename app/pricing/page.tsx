@@ -38,7 +38,7 @@ export default function PricingPage() {
     <div className="flex min-h-screen flex-col">
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="w-full bg-gradient-to-br from-primary/5 via-background to-secondary/5 py-12 md:py-24 lg:py-32">
+        <section className="w-full bg-gradient-to-br from-primary/5 via-background to-secondary/5  pt-12 pb-8 md:pt-24 lg:pt-32">
           <div className="container mx-auto max-w-7xl px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">

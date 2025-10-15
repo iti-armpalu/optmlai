@@ -19,7 +19,6 @@ import { SampleReport } from "@/components/sample-report"
 import {
   heroData,
   chatDemoData,
-  featuresData,
   howItWorksData,
   integrationsData,
   pricingData,
@@ -28,6 +27,9 @@ import {
   ctaData
 } from "@/data/homepage"
 import { CTA } from "@/components/sections/cta"
+import FeatureCard from "@/components/feature-card"
+import { landingFeaturesSection as lf } from "./features/_data";
+
 
 export default function HomePage() {
   return (
@@ -133,7 +135,7 @@ export default function HomePage() {
                         View Sample Report
                       </Button>
                     </DialogTrigger>
-                    <DialogContent className="max-w-[90vw] max-h-[90vh] overflow-y-auto">
+                    <DialogContent className="w-full sm:max-w-[90vw] max-w-[90vw] max-h-[90vh] overflow-y-auto">
                       <DialogHeader>
                         <DialogTitle className="flex items-center gap-2">
                           <Brain className="w-5 h-5 text-primary" />
@@ -257,12 +259,12 @@ export default function HomePage() {
                     </CardContent>
                   </Card>
                   {/* Floating Elements */}
-                  <div className="absolute -top-4 -right-4 bg-green-500 text-white text-xs px-2 py-1 rounded-full animate-pulse">
+                  {/* <div className="absolute -top-4 -right-4 bg-green-500 text-white text-xs px-2 py-1 rounded-full animate-pulse">
                     +34% Visibility
                   </div>
                   <div className="absolute -bottom-4 -left-4 bg-blue-500 text-white text-xs px-2 py-1 rounded-full animate-pulse">
                     Live Analysis
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>
@@ -270,7 +272,7 @@ export default function HomePage() {
         </section>
 
         {/* Features Section */}
-        <section id="features" className="w-full py-12 md:py-24 lg:py-32 bg-muted/50">
+        {/* <section id="features" className="w-full py-12 md:py-24 lg:py-32 bg-muted/50">
           <div className="container mx-auto max-w-7xl px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
@@ -312,7 +314,48 @@ export default function HomePage() {
               </Button>
             </div>
           </div>
-        </section>
+        </section> */}
+        <section id="features" className="w-full bg-muted/50 py-12 md:py-24 lg:py-32">
+  <div className="container mx-auto max-w-7xl px-4 md:px-6">
+    {/* Header */}
+    <div className="flex flex-col items-center justify-center space-y-4 text-center">
+      <div className="space-y-2">
+        <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
+          {lf.heading}
+        </h2>
+        <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+          {lf.subheading}
+        </p>
+      </div>
+    </div>
+
+    {/* Cards */}
+    <div className="mx-auto grid max-w-5xl items-center gap-6 py-12 lg:grid-cols-3 lg:gap-12">
+      {lf.cards.map((card) => (
+        <FeatureCard
+          key={card.id}
+          icon={card.icon}
+          title={card.title}
+          description={card.description}
+          bullets={card.bullets}
+          // no badge on landing
+          // no cta on landing
+          descriptionMinHeightClass="min-h-[56px]"
+        />
+      ))}
+    </div>
+
+    {/* Section CTA */}
+    <div className="mt-12 flex justify-center">
+      <Button size="lg" variant="outline" className="gap-2 bg-transparent" asChild>
+        <Link href={lf.cta.href}>
+          {lf.cta.label}
+          {lf.cta.icon ? <lf.cta.icon className="h-4 w-4" aria-hidden="true" /> : null}
+        </Link>
+      </Button>
+    </div>
+  </div>
+</section>
 
         {/* How It Works Section */}
         <section className="w-full py-12 md:py-24 lg:py-32">
@@ -519,82 +562,8 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Testimonials Section */}
-        {/* <section className="w-full py-12 md:py-24 lg:py-32 bg-muted/50">
-          <div className="container mx-auto max-w-7xl px-4 md:px-6">
-            <div className="flex flex-col items-center justify-center space-y-4 text-center">
-              <div className="space-y-2">
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Loved by Content Creators</h2>
-                <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  See what our users are saying about optml.ai.
-                </p>
-              </div>
-            </div>
-            <div className="mx-auto grid max-w-5xl items-center gap-6 py-12 lg:grid-cols-3 lg:gap-12">
-              {testimonialsData.map((testimonial) => (
-                <Card key={testimonial.name}>
-                  <CardContent className="pt-6">
-                    <div className="flex items-center gap-1 mb-4">
-                      {[...Array(testimonial.rating)].map((_, i) => (
-                        <Star key={i} className="w-4 h-4 fill-primary text-primary" />
-                      ))}
-                    </div>
-                    <p className="text-sm mb-4">{testimonial.content}</p>
-                    <div className="flex items-center gap-2">
-                      <div className="w-8 h-8 rounded-full bg-muted" />
-                      <div>
-                        <p className="text-sm font-medium">{testimonial.name}</p>
-                        <p className="text-xs text-muted-foreground">{testimonial.role}</p>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </section> */}
 
-        {/* CTA Section */}
-        {/* <section className="w-full py-12 md:py-24 lg:py-32 bg-primary text-primary-foreground">
-          <div className="container mx-auto max-w-7xl px-4 md:px-6">
-            <div className="flex flex-col items-center justify-center space-y-4 text-center">
-              <div className="space-y-2">
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">{ctaData.title}</h2>
-                <p className="max-w-[600px] text-primary-foreground/80 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  {ctaData.description}
-                </p>
-              </div>
-              <div className="flex flex-col gap-2 min-[400px]:flex-row">
-                <Button size="lg" variant="secondary" className="gap-2" asChild>
-                  <Link href="/signup">
-                    Start Your Free Trial
-                    <ArrowRight className="w-4 h-4" />
-                  </Link>
-                </Button>
-                <div className="flex flex-col gap-2 min-[400px]:flex-row">
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    className="gap-2 bg-transparent border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/10"
-                  >
-                    <Play className="w-4 h-4" />
-                    Watch Demo
-                  </Button>
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    className="gap-2 bg-transparent border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/10"
-                    onClick={() => (window.location.href = "/schedule-demo")}
-                  >
-                    <Calendar className="w-4 h-4" />
-                    Schedule Demo
-                  </Button>
-                </div>
-              </div>
-              <p className="text-sm text-primary-foreground/60">{ctaData.disclaimer}</p>
-            </div>
-          </div>
-        </section> */}
+
 
         <CTA
           title={ctaData.title}

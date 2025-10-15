@@ -59,8 +59,8 @@ export const chatDemoData = {
     icon: Brain,
     text: "AI-Powered",
   },
-  title: "Smart Heatmapping Reports You Can",
-  titleHighlight: "Chat With",
+  title: "Talk to Your Report",
+  titleHighlight: "",
   description:
     "Get instant insights from your heatmap data through natural conversation. Ask questions, get recommendations, and discover optimization opportunities with our AI-powered chat interface.",
   features: [
@@ -84,27 +84,6 @@ export const chatDemoData = {
     },
   ] as ChatFeature[],
 }
-
-export const featuresData: Feature[] = [
-  {
-    icon: MousePointer,
-    title: "Real-time Heatmaps",
-    description: "See exactly where users click, scroll, and engage with your content in real-time.",
-    benefits: ["Click tracking", "Scroll depth analysis", "Attention mapping"],
-  },
-  {
-    icon: BarChart3,
-    title: "Smart Analytics",
-    description: "Get actionable insights with AI-powered recommendations to improve your content performance.",
-    benefits: ["Performance metrics", "A/B testing", "Conversion tracking"],
-  },
-  {
-    icon: Zap,
-    title: "Seamless Integration",
-    description: "Works with all major content creation platforms and tools without disrupting your workflow.",
-    benefits: ["One-click setup", "Universal compatibility", "No code required"],
-  },
-]
 
 export const howItWorksData: HowItWorksStep[] = [
   {

@@ -23,6 +23,63 @@ import {
     ChevronRight
 } from "lucide-react";
 
+import type { FeatureBullet } from "@/components/feature-card";
+
+// Landing features sectin
+
+type LandingFeatureCard = {
+  id: string;
+  icon: LucideIcon;
+  title: string;
+  description: string;
+  bullets: FeatureBullet[];
+};
+
+export const landingFeaturesSection = {
+  heading: "Powerful Features for Content Creators",
+  subheading:
+    "Everything you need to create high-performing content that engages your audience and drives results.",
+  cards: [
+    {
+      id: "conversion-maps",
+      icon: MessageCircle,
+      title: "Conversion Maps",
+      description:
+        "Go beyond views to conversion advice.",
+      bullets: [
+        { label: "Cognitive impact scores", icon: Check, iconClass: "text-green-500" },
+        { label: "Behavioral impact mapping", icon: Check, iconClass: "text-green-500" },
+        { label: "Conversion gap analysis", icon: Check, iconClass: "text-green-500" },
+      ],
+    },
+    {
+      id: "visually-aided-conversations",
+      icon: MousePointer,
+      title: "Visually Aided Conversations",
+      description:
+        "Get actionable insights with visual AI-powered recommendations to see how you can improve performance.",
+      bullets: [
+        { label: "Missing conversion contributors", icon: Check, iconClass: "text-green-500" },
+        { label: "Behavioral optimization advice", icon: Check, iconClass: "text-green-500" },
+      ],
+    },
+    {
+      id: "performance-insights",
+      icon: BarChart3,
+      title: "Performance Insights",
+      description:
+        "Deep analytics and metrics to understand your content's impact and effectiveness.",
+      bullets: [
+        { label: "Conversion tracking", icon: Check, iconClass: "text-green-500" },
+        { label: "Engagement metrics", icon: Check, iconClass: "text-green-500" },
+        { label: "Custom dashboards", icon: Check, iconClass: "text-green-500" },
+      ],
+    },
+  ] as const satisfies readonly LandingFeatureCard[],
+  cta: { label: "Discover All Features", href: "/features", icon: ArrowRight },
+} as const;
+
+
 // Hero
 export type CTA = {
     label: string;
