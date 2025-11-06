@@ -3,13 +3,16 @@ import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { methodology, ctaData, successStories, heroSection, featuredCaseStudy } from "./_data"
+import { methodology, ctaData, heroSection, getFeaturedCaseStudies, caseStudies, successStoriesSection } from "./_data"
 import { CTA } from "@/components/sections/cta"
+import { ArrowRight } from "lucide-react"
 // import { Progress } from "@/components/ui/progress"
 
 export default function CaseStudiesPage() {
-    const { heading, subheading, cards } = successStories;
-    const fc = featuredCaseStudy;
+    // const { heading, subheading, cards } = successStories;
+    // const fc = featuredCaseStudy;
+    const featuredStudies = getFeaturedCaseStudies()
+
 
     return (
         <div className="flex flex-col min-h-screen">
@@ -31,77 +34,77 @@ export default function CaseStudiesPage() {
                     </div>
                 </section>
 
-                {/* Featured Case Study */}
-                <section className="w-full py-12">
-                    <div className="container mx-auto max-w-7xl px-4 md:px-6">
-                        <div className="grid items-center gap-6 lg:grid-cols-2 lg:gap-12">
-                            {/* Left column: text */}
-                            <div className="flex flex-col justify-center space-y-4">
-                                <div className="space-y-2">
-                                    <Badge variant="secondary" className="w-fit">
-                                        {/* Badge icon from data */}
-                                        <fc.badge.icon className="mr-1 h-3 w-3" aria-hidden="true" />
-                                        {fc.badge.label}
-                                    </Badge>
+                {/* Featured Case Studies */}
+                {featuredStudies.length > 0 && (
+                    <section className="w-full py-12">
+                        <div className="container mx-auto max-w-7xl px-4 md:px-6">
+                            {featuredStudies.map((study) => (
+                                <div key={study.slug} className="grid items-center gap-6 lg:grid-cols-2 lg:gap-12">
 
-                                    <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">
-                                        {fc.title.before}
-                                        <span className="text-primary">{fc.title.highlight}</span>
-                                        {fc.title.after ? fc.title.after : null}
-                                    </h2>
+                                    {/* Left column: text */}
+                                    <div className="flex flex-col justify-center space-y-4">
+                                        <div className="space-y-2">
+                                            {/* <Badge variant="secondary" className="w-fit">
+                                                
+                                                <study.badge.icon className="mr-1 h-3 w-3" aria-hidden="true" />
+                                                {study.badge.label}
+                                            </Badge> */}
 
-                                    {/* Keep paragraph heights consistent if you want alignment across layouts */}
-                                    <p className="max-w-[600px] text-muted-foreground md:text-lg min-h-[72px]">
-                                        {fc.description}
-                                    </p>
-                                </div>
+                                            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">
+                                                {study.title}
+                                            </h2>
 
-                                {/* Metrics */}
-                                <div className="space-y-4">
-                                    {fc.metrics.map(({ label, value /*, progress*/ }, i) => (
-                                        <div className="space-y-2" key={i}>
-                                            <div className="flex justify-between text-sm">
-                                                <span>{label}</span>
-                                                <span className="font-bold">{value}</span>
-                                            </div>
-                                            {/* If/when you enable Progress:
-                    <Progress value={progress ?? 0} className="h-2" />
-                    */}
+                                            {/* Keep paragraph heights consistent if you want alignment across layouts */}
+                                            <p className="max-w-[600px] text-muted-foreground md:text-lg min-h-[72px]">
+                                                {study.descriptionShort}
+                                            </p>
                                         </div>
-                                    ))}
-                                </div>
 
-                                {/* CTAs */}
-                                <div className="flex flex-col gap-2 min-[400px]:flex-row">
-                                    <Button size="lg" className="gap-2" asChild>
-                                        <Link href={`/case-studies/${fc.slug}`}>
-                                            {fc.ctas.primary.label}
-                                            {fc.ctas.primary.icon ? (
-                                                <fc.ctas.primary.icon className="h-4 w-4" aria-hidden="true" />
-                                            ) : null}
-                                        </Link>
-                                    </Button>
-                                </div>
-                            </div>
+                                        {/* Metrics */}
+                                        {/* <div className="space-y-4">
+                                            {study.metrics.map(({ label, value }, i) => (
+                                                <div className="space-y-2" key={i}>
+                                                    <div className="flex justify-between text-sm">
+                                                        <span>{label}</span>
+                                                        <span className="font-bold">{value}</span>
+                                                    </div>
+                                            
 
-                            {/* Right column: image */}
-                            <div className="flex items-center justify-center">
-                                <div className="relative">
-                                    <Image
-                                        src={fc.media.src}
-                                        alt={fc.media.alt}
-                                        width={fc.media.width}
-                                        height={fc.media.height}
-                                        className="mx-auto aspect-video overflow-hidden rounded-xl object-cover shadow-2xl"
-                                        priority
-                                    />
-                                    <div className="absolute inset-0 rounded-xl bg-gradient-to-t from-background/20 to-transparent" />
+                                                </div>
+                                            ))}
+                                        </div> */}
+
+                                        {/* CTAs */}
+                                        <div className="flex flex-col gap-2 min-[400px]:flex-row">
+                                            <Button size="lg" className="gap-2" asChild>
+                                                <Link href={`/case-studies/${study.slug}`}>
+                                                    Read Full Case Study
+                                                    <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                                                </Link>
+                                            </Button>
+                                        </div>
+                                    </div>
+
+                                    {/* Right column: image */}
+                                    <div className="flex items-center justify-center">
+                                        <div className="relative">
+                                            <Image
+                                                src={study.image.src}
+                                                alt={study.image.alt}
+                                                width={600}
+                                                height={400}
+                                                className="mx-auto aspect-video overflow-hidden rounded-xl object-cover shadow-2xl"
+                                                priority
+                                            />
+                                            <div className="absolute inset-0 rounded-xl bg-gradient-to-t from-background/20 to-transparent" />
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
+                            ))}
+
                         </div>
-                    </div>
-                </section>
-
+                    </section>
+                )}
 
                 {/* Success Stories Grid */}
                 <section className="w-full py-12 md:py-24 lg:py-32 bg-muted/50">
@@ -110,56 +113,55 @@ export default function CaseStudiesPage() {
                         <div className="flex flex-col items-center justify-center space-y-4 text-center">
                             <div className="space-y-2">
                                 <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-                                    {heading}
+                                    {successStoriesSection.heading}
                                 </h2>
                                 <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                                    {subheading}
+                                    {successStoriesSection.subheading}
                                 </p>
                             </div>
                         </div>
 
-                        {/* Cards */}
+                        {/* All case studies */}
                         <div className="mx-auto grid max-w-6xl items-center gap-6 py-12 lg:grid-cols-2 xl:grid-cols-3">
-                            {cards.map((card) => {
-                                const Icon = card.categoryIcon;
+                            {caseStudies.map((study) => {
+                                // const Icon = card.categoryIcon;
                                 return (
-                                    <Card className="h-full" key={card.id}>
+                                    <Card className="h-full" key={study.slug}>
                                         <CardHeader>
                                             <div className="flex items-center justify-between pb-4">
                                                 <Badge variant="secondary" className="w-fit">
-                                                    <Icon className="w-3 h-3 mr-1" aria-hidden="true" />
-                                                    {card.category}
+                                                    {study.industry}
                                                 </Badge>
-                                                {/* <div className={`text-2xl font-bold ${card.primaryDelta.colorClass ?? ""}`}>
-                                                    {card.primaryDelta.value}
-                                                </div> */}
                                             </div>
 
-                                            <CardTitle>{card.title}</CardTitle>
+                                            <CardTitle>{study.title}</CardTitle>
 
-                                            {/* Keep descriptions aligned: set a min-height (mobile-first, responsive) */}
                                             <CardDescription className="min-h-[56px] md:min-h-[48px]">
-                                                {card.description}
+                                                {study.descriptionShort}
                                             </CardDescription>
                                         </CardHeader>
 
                                         <CardContent className="space-y-4">
-                                            <div className="space-y-2 text-sm">
-                                                {card.kpis.map(({ label, value, colorClass }, idx) => (
-                                                    <div className="flex justify-between" key={idx}>
-                                                        <span>{label}</span>
-                                                        <span className={`font-bold ${colorClass ?? ""}`}>{value}</span>
-                                                    </div>
-                                                ))}
-                                            </div>
+
+                                            {study.kpis && study.kpis.length > 0 && (
+                                                <div className="space-y-2 text-sm">
+                                                    {study.kpis.map((kpi, index) => (
+                                                        <div key={index} className="flex justify-between">
+                                                            <span>{kpi.label}</span>
+                                                            <span className={`font-bold text-green-400`}>{kpi.value}</span>
+                                                        </div>
+                                                    ))}
+                                                </div>
+                                            )}
+
 
                                             <blockquote className="text-sm italic text-muted-foreground min-h-[56px] md:min-h-[80px]">
-                                                {card.quote}
+                                                {study.quote}
                                             </blockquote>
 
 
                                             <Button asChild variant="outline" size="sm" className="w-full bg-transparent">
-                                                <Link href={`/case-studies/${card.slug}`}>{card.cta.label}</Link>
+                                                <Link href={`/case-studies/${study.slug}`}>View case study</Link>
                                             </Button>
 
 
@@ -168,6 +170,8 @@ export default function CaseStudiesPage() {
                                 );
                             })}
                         </div>
+
+
                     </div>
                 </section>
 

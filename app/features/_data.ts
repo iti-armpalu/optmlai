@@ -9,17 +9,7 @@ import {
     Check,
     Activity,
     PieChart,
-    TrendingUp,
-    Filter,
-    Target,
-    Clock,
     Brain,
-    Layers,
-    Settings,
-    Globe,
-    Smartphone,
-    Shield,
-    Users,
     ChevronRight
 } from "lucide-react";
 
@@ -200,47 +190,20 @@ export const featureCategoriesSection = {
             label: "Analytics",
             cards: [
                 {
-                    id: "realtime-monitoring",
+                    id: "ai-powered-heatmap",
                     icon: Activity,
-                    title: "Real-time Monitoring",
-                    description: "Track user behavior as it happens with live data streams.",
-                    bullets: ["Live visitor tracking", "Real-time heatmap updates", "Instant performance alerts"],
+                    title: "AI Powered Heatmap",
+                    description: "Understand which areas of interest will attract visual attention in the first 3-5 seconds of view.",
+                    bullets: ["Test in seconds", "Define core attraction areas", "Discover dead space", "Qualify design ideas"],
                 },
                 {
-                    id: "advanced-segmentation",
+                    id: "commerce-marketing-analyst",
                     icon: PieChart,
-                    title: "Advanced Segmentation",
-                    description: "Analyze different user groups and behavior patterns.",
-                    bullets: ["Geographic segmentation", "Device-based analysis", "Traffic source breakdown"],
-                },
-                {
-                    id: "trend-analysis",
-                    icon: TrendingUp,
-                    title: "Trend Analysis",
-                    description: "Identify patterns and trends in your content performance.",
-                    bullets: ["Historical data comparison", "Seasonal trend detection", "Performance forecasting"],
-                },
-                {
-                    id: "custom-filters",
-                    icon: Filter,
-                    title: "Custom Filters",
-                    description: "Filter and drill down into specific data points.",
-                    bullets: ["Date range filtering", "User behavior filters", "Content type segmentation"],
-                },
-                {
-                    id: "goal-tracking",
-                    icon: Target,
-                    title: "Goal Tracking",
-                    description: "Set and monitor specific conversion goals and KPIs.",
-                    bullets: ["Custom goal definition", "Conversion funnel analysis", "ROI measurement"],
-                },
-                {
-                    id: "time-insights",
-                    icon: Clock,
-                    title: "Time-based Insights",
-                    description: "Understand how user behavior changes over time.",
-                    bullets: ["Peak activity hours", "Session duration analysis", "Time-on-page metrics"],
-                },
+                    title: "Commerce Marketing Analyst",
+                    description: "Real time text and image analysis of your content. Assessed against commerce marketing framework.",
+                    bullets: ["Contextual Analysis", "Buyer decision moment relevance", "Scored against framework guidelines", "Rank your campaigns"],
+                }
+                
             ],
         },
         {
@@ -248,25 +211,40 @@ export const featureCategoriesSection = {
             label: "Optimization",
             cards: [
                 {
-                    id: "ai-recommendations",
+                    id: "commerce-marketing-framework",
                     icon: Brain,
-                    title: "AI Recommendations",
-                    description: "Get intelligent suggestions for improving your content.",
-                    bullets: ["Layout optimization tips", "Content placement advice", "CTA improvement suggestions"],
+                    title: "Commerce Marketing Framework",
+                    description: "Access a framework of content guidelines enhanced with years of in-market sales data.",
+                    bullets: [
+                        "Review for intended ad placement",
+                        "Review for full purchase journey",
+                        "Choose between In Store, E-Commerce, and Social channels",
+                        "Test a key visual across all channels for adaptation"
+                    ],
                 },
                 {
-                    id: "ab-suite",
-                    icon: Layers,
-                    title: "A/B Testing Suite",
-                    description: "Test different versions of your content to find what works best.",
-                    bullets: ["Visual A/B test editor", "Statistical significance", "Multi-variant testing"],
+                    id: "detailed-reporting",
+                    icon: Brain,
+                    title: "Detailed Reporting",
+                    description: "Visual heatmap combined with ad content review, tested for your chosen ad placement.",
+                    bullets: [
+                        "Visual Salience score",
+                        "Imagery overview",
+                        "Content analysis",
+                        "Scored for ad placement to assess content relevance"
+                    ],
                 },
                 {
-                    id: "auto-optimization",
-                    icon: Settings,
-                    title: "Auto-Optimization",
-                    description: "Let AI automatically optimize your content based on performance data.",
-                    bullets: ["Smart content adjustments", "Dynamic element positioning", "Automated A/B testing"],
+                    id: "optimization-recommendations",
+                    icon: Brain,
+                    title: "Optimization Recommendations",
+                    description: "Suggested changes to align content with the context of the moment.",
+                    bullets: [
+                        "Adapt each ad for optimal performance",
+                        "Align your omni-channel campaigns",
+                        "Tweak content and re-test",
+                        "Stand out with relevance for conversion"
+                    ],
                 },
             ],
         },
@@ -275,25 +253,16 @@ export const featureCategoriesSection = {
             label: "Integration",
             cards: [
                 {
-                    id: "universal-compat",
-                    icon: Globe,
-                    title: "Universal Compatibility",
-                    description: "Works with all major platforms and content management systems.",
-                    bullets: ["WordPress, Shopify, Webflow", "Custom HTML/CSS sites", "Single-page applications"],
-                },
-                {
-                    id: "easy-install",
-                    icon: Zap,
-                    title: "Easy Installation",
-                    description: "Get started in minutes with our simple setup process.",
-                    bullets: ["One-click browser extension", "Simple code snippet", "Plugin marketplace"],
-                },
-                {
-                    id: "mobile-optimization",
-                    icon: Smartphone,
-                    title: "Mobile Optimization",
-                    description: "Full support for mobile and responsive design analysis.",
-                    bullets: ["Mobile heatmaps", "Touch interaction tracking", "Responsive design insights"],
+                    id: "web-browser-plugin",
+                    icon: Brain,
+                    title: "Web Browser PlugIn",
+                    description: "Easy to install on any browser, giving you instant access to test creative anywhere you work.",
+                    bullets: [
+                        "Install in seconds",
+                        "Works with any design tool you choose",
+                        "Screengrab functionality",
+                        "Test and optimize in minutes"
+                    ],
                 },
             ],
         },
@@ -302,26 +271,53 @@ export const featureCategoriesSection = {
             label: "Enterprise",
             cards: [
                 {
-                    id: "enterprise-security",
-                    icon: Shield,
-                    title: "Enterprise Security",
-                    description: "Bank-level security and compliance for enterprise customers.",
-                    bullets: ["SOC 2 Type II compliance", "GDPR & CCPA compliant", "Data encryption at rest"],
-                },
-                {
-                    id: "team-collab",
-                    icon: Users,
+                    id: "team-collaboration",
+                    icon: Brain,
                     title: "Team Collaboration",
-                    description: "Advanced team features for large organizations.",
-                    bullets: ["Role-based permissions", "Team workspaces", "Shared dashboards"],
+                    description: "Platform-based solution with access to project folders for seamless team sharing.",
+                    bullets: [
+                        "Upload whole campaign copy",
+                        "Assign roles for tasks and review",
+                        "Accelerate campaign review times",
+                        "Ideal for client review meetings"
+                    ],
                 },
                 {
-                    id: "custom-solutions",
-                    icon: Settings,
-                    title: "Custom Solutions",
-                    description: "Tailored features and integrations for enterprise needs.",
-                    bullets: ["Custom API endpoints", "White-label solutions", "Dedicated support"],
+                    id: "api-access",
+                    icon: Brain,
+                    title: "API Access",
+                    description: "Integrate our framework directly into your design workflow.",
+                    bullets: [
+                        "API delivery direct to your platform",
+                        "Choose all features or just take a few",
+                        "xxx",
+                        "xxx"
+                    ],
                 },
+                {
+                    id: "white-label-options",
+                    icon: Brain,
+                    title: "White-label Options",
+                    description: "Built for your company, made to look fully in-house.",
+                    bullets: [
+                        "Branded platform",
+                        "Bespoke design options",
+                        "Staff and client access settings",
+                        "24/7 support"
+                    ],
+                },
+                {
+                    id: "dedicated-support",
+                    icon: Brain,
+                    title: "Dedicated Support",
+                    description: "An Account Lead dedicated to your success, providing ongoing guidance and assistance.",
+                    bullets: [
+                        "Onboarding & training",
+                        "Regular check-ins",
+                        "Hot-desking options",
+                        "xxx"
+                    ],
+                }
             ],
         },
     ] as const satisfies FeatureTab[],
