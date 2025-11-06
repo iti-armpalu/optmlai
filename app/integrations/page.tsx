@@ -38,7 +38,7 @@ import {
 } from "./_data"
 
 // Icon mapping for dynamic icon rendering
-const icons = {
+const iconMap = {
   Eye,
   Target,
   TrendingUp,
@@ -52,15 +52,10 @@ const icons = {
   Firefox,
 } as const
 
-const iconMap = {
-  Building2,
-  Eye,
-}
-
-type IconName = keyof typeof icons
+type IconName = keyof typeof iconMap
 
 export const getIcon = (iconName: IconName | string): LucideIcon => {
-  return icons[iconName as IconName] ?? Building2
+  return iconMap[iconName as IconName] ?? Building2
 }
 
 
