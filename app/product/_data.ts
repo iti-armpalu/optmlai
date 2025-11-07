@@ -1,35 +1,20 @@
-import type { LucideIcon } from "lucide-react";
-import { Lightbulb, Check, Brain, Download, Play, Calendar, Database, MousePointer, Eye, Clock, Globe, Cpu, TrendingUp, Target, Zap, MessageCircle, BarChart3, Shield } from "lucide-react";
+import { Check, Brain, Download, Play, Calendar, MousePointer, Eye, Globe, Zap, MessageCircle, BarChart3, Shield, Award, UserRoundX, Activity, LightbulbIcon, X } from "lucide-react";
 
-
-// Hero
-export type CTA = {
-  label: string;
-  icon?: LucideIcon;
-  href?: string;                 // if omitted, render as a regular button
-  variant?: "default" | "outline" | "secondary" | "destructive" | "ghost" | "link";
-};
-
-export type ProductHero = {
-  gradient: string;
-  badge: { label: string; icon: LucideIcon; variant?: "secondary" | "outline" | "default" };
-  heading: string;
-  subheading: string;
-  ctas: [CTA, ...CTA[]];         // at least one primary CTA
-  checklist: { label: string; icon?: LucideIcon; iconClass?: string }[];
-  media: { src: string; alt: string; width: number; height: number };
-};
-
-export const productHero: ProductHero = {
-  gradient: "bg-gradient-to-br from-primary/5 via-background to-secondary/5",
-  badge: { label: "AI-Powered Content Optimization", icon: Download, variant: "secondary" },
+// Hero  Data
+export const hero = {
+  gradient: "bg-gradient-to-br from-primary/10 via-background to-secondary/10",
+  badge: {
+    variant: "secondary" as const,
+    icon: Download,
+    label: "AI-Powered Content Optimization",
+  },
   heading: "Content Optimization Needs Context",
   subheading:
     "Optml.ai is the first technology that optimizes ads through the lens of human behavior. Instead of blindly tweaking creative elements, it analyzes the viewer’s context, attention, and emotion to deliver ads that perform, not just appear.",
   ctas: [
     { label: "Install Extension", href: "/signup", icon: Download }, // primary
-    { label: "Watch Demo", icon: Play, variant: "outline" },
-    { label: "Schedule Demo", href: "/schedule-demo", icon: Calendar, variant: "outline" },
+    { label: "Watch Demo", icon: Play, variant: "outline" as const },
+    { label: "Schedule Demo", href: "/schedule-demo", icon: Calendar, variant: "outline" as const },
   ],
   checklist: [
     { label: "Free 14-day trial", icon: Check, iconClass: "text-green-500" },
@@ -37,246 +22,228 @@ export const productHero: ProductHero = {
     { label: "No coding required", icon: Check, iconClass: "text-green-500" },
   ],
   media: {
-    src: "/ai-content-optimization-dashboard-with-heatmaps-an.jpg",
+    src: "/ai-analytics-dashboard-with-heatmap-overlay.jpg",
     alt: "optml.ai Browser Extension Interface",
     width: 600,
     height: 400,
   },
-} as const;
+}
 
-
-// Product story
-export type StoryPoint = {
-  id: string;
-  tone: "negative" | "positive";
-  title: string;
-  description: string;
-  // visual token for the round badge on the left
-  badge:
-    | { kind: "emoji"; value: "❌"; bgClass: string; textClass: string }
-    | { kind: "icon"; icon: LucideIcon; bgClass: string; textClass: string };
-};
-
-export type ContrastRow = {
-  label: string;
-  // text like "Hours → Minutes"
-  value: string;
-  bgClass: string;
-  textClass: string;
-};
-
-export type ProductStorySection = {
-  badge: { label: string; icon: LucideIcon; variant?: "outline" | "secondary" | "default" };
-  heading: { before: string; highlight: string; after?: string };
-  subheading: string;
-  points: readonly StoryPoint[];
-  compareCard: {
-    title: { label: string; icon: LucideIcon };
-    rows: readonly ContrastRow[];
-  };
-};
-
-export const productStory: ProductStorySection = {
-  badge: { label: "The Problem We Solve", icon: Lightbulb, variant: "outline" },
+// Product Story Section Data
+export const productStory = {
+  badge: {
+    variant: "outline" as const,
+    icon: LightbulbIcon,
+    label: "The Problem We Solve",
+  },
   heading: {
     before: "Content Creation is ",
     highlight: "Behavioral",
+    after: null,
   },
   subheading:
-    "Optml.ai is the first technology that bases its recommendations on human behavior. It doesn't optimize an add blindly, it does it for the context of the viewer seeing the ad. ",
+    "Traditional analytics tell you what happened, but not why. optml.ai combines heatmaps with conversational AI to give you actionable answers.",
   points: [
     {
       id: "traditional",
-      tone: "negative",
+      badge: {
+        icon: X,
+        bgClass: "bg-red-100",
+        textClass: "text-red-600",
+      },
+      tone: "negative" as const,
       title: "Traditional analytics",
-      description:
-        "Complex dashboards, delayed insights, and no actionable recommendations",
-      badge: { kind: "emoji", value: "❌", bgClass: "bg-red-100", textClass: "text-red-600" },
+      description: "Complex dashboards, delayed insights, and no actionable recommendations",
     },
     {
       id: "optml",
-      tone: "positive",
+      badge: {
+        icon: Check,
+        bgClass: "bg-green-100",
+        textClass: "text-green-600",
+      },
+      tone: "positive" as const,
       title: "optml.ai approach",
-      description:
-        "Conversational AI that explains your data and provides specific optimization steps",
-      badge: { kind: "icon", icon: Check, bgClass: "bg-green-100", textClass: "text-green-600" },
+      description: "Conversational AI that explains your data and provides specific optimization steps",
     },
-  ] as const,
+  ],
   compareCard: {
-    title: { label: "Traditional vs. AI-Powered", icon: Brain },
+    title: {
+      icon: Brain,
+      label: "Traditional vs. AI-Powered",
+    },
     rows: [
       { label: "Setup Time", value: "Hours → Minutes", bgClass: "bg-red-50", textClass: "text-red-600" },
       { label: "Insights", value: "Raw Data → Actionable", bgClass: "bg-green-50", textClass: "text-green-600" },
       { label: "Learning Curve", value: "Steep → Conversational", bgClass: "bg-blue-50", textClass: "text-blue-600" },
       { label: "Results", value: "Delayed → Immediate", bgClass: "bg-purple-50", textClass: "text-purple-600" },
-    ] as const,
+    ],
   },
-} as const;
+}
 
-
-// How optml.ai Works
-/** Left column */
-export type HowBullet = { icon: LucideIcon; label: string };
-export type HowLeft = {
-  headingIcon: LucideIcon;
-  heading: string;
-  description: string;
-  bullets: HowBullet[];
-};
-
-/** Right column (card) */
-type KPIRow = { label: string; value: string; bgClass: string; textClass: string };
-type ProgressBar = { label: string; percent: number };
-type ChatMsg = { from: "user" | "ai"; text: string };
-type GridTile = { value: string; label: string; bgClass: string; textClass: string };
-
-export type HowRight =
-  | { kind: "kpis"; rows: KPIRow[] }
-  | { kind: "progress"; title?: string; bars: ProgressBar[] }
-  | { kind: "chat"; title: string; messages: ChatMsg[] }
-  | { kind: "grid"; title: string; tiles: GridTile[] };
-
-/** Tab */
-export type HowTab = {
-  value: "data-collection" | "ai-analysis" | "insights" | "optimization";
-  label: string;
-  left: HowLeft;
-  right: HowRight;
-};
-
-export type HowItWorksSection = {
-  heading: string;
-  subheading: string;
-  tabs: readonly HowTab[];
-};
-
-export const howItWorks: HowItWorksSection = {
+// How It Works Section Data
+export const howItWorks = {
   heading: "How optml.ai Works",
+  subheading: "Powered by cutting-edge neuroscience and AI technology to understand human attention and behavior",
+  cards: [
+    {
+      icon: Brain,
+      title: "Neuroscience Foundation",
+      description: "Built on decades of research in visual attention, cognitive load, and decision-making psychology",
+      features: ["Visual salience mapping", "Attention prediction models", "Cognitive load analysis"],
+    },
+    {
+      icon: Zap,
+      title: "AI Processing Engine",
+      description: "Advanced machine learning algorithms process visual elements and predict user behavior patterns",
+      features: ["Computer vision analysis", "Behavioral prediction", "Real-time optimization"],
+    },
+    {
+      icon: BarChart3,
+      title: "Data Integration",
+      description: "Combines predictive insights with real user data to provide actionable recommendations",
+      features: ["Multi-source data fusion", "Continuous learning", "Personalized insights"],
+    },
+  ],
+  cta: {
+    label: "Learn More About Our Technology",
+    href: "/technology",
+    icon: Activity,
+  },
+}
+
+// How To Use Extension Section Data
+export const howToUseExtension = {
+  heading: "How to Use the Browser Extension",
+  subheading: "Get started with optml.ai in minutes. Our browser extension makes content optimization effortless.",
+  steps: [
+    {
+      number: 1,
+      badge: "Install",
+      title: "Install the Extension",
+      description: "Add optml.ai to your browser in seconds",
+      features: [
+        { icon: Globe, label: "Available for Chrome, Firefox, Safari" },
+        { icon: Shield, label: "Privacy-first, secure installation" },
+        { icon: UserRoundX, label: "No account required to start" },
+      ],
+      buttonLabel: "Install Extension",
+    },
+    {
+      number: 2,
+      badge: "Activate",
+      title: "Activate on Any Page",
+      description: "Click the extension icon to start analyzing",
+      features: [
+        { icon: MousePointer, label: "One-click activation on any website" },
+        { icon: Eye, label: "Instant heatmap generation" },
+        { icon: BarChart3, label: "Real-time analytics overlay" },
+      ],
+      note: "Works on any website - your blog, landing pages, e-commerce sites, and more.",
+    },
+    {
+      number: 3,
+      badge: "Optimize",
+      title: "Get AI Insights / Chat with Your data",
+      description:
+        "Chat with AI to understand your data / Ask questions about your content performance in natural language",
+      features: [
+        { icon: MessageCircle, label: "Ask questions in natural language" },
+        { icon: Brain, label: "Get actionable recommendations" },
+        { icon: Zap, label: "Implement changes with one click" },
+      ],
+      note: '"Why are users leaving?" → "Users scroll past your CTA. Move it 200px higher for 23% more conversions."',
+    },
+  ],
+  footer: {
+    icon: Award,
+    label: "Average setup time: 2 minutes",
+  },
+}
+
+// Use Cases Section Data
+export const useCases = {
+  heading: "Built for Every Content Creator",
   subheading:
-    "Advanced AI technology meets intuitive user experience to deliver unprecedented content insights.",
-  tabs: [
+    "Whether you're a blogger, marketer, or enterprise team, optml.ai adapts to your unique needs and workflow.",
+  cases: [
     {
-      value: "data-collection",
-      label: "Data Collection",
-      left: {
-        headingIcon: Database,
-        heading: "Real-Time Data Collection",
-        description:
-          "Our lightweight tracking system captures every user interaction without impacting site performance.",
-        bullets: [
-          { icon: MousePointer, label: "Click tracking and heatmap generation" },
-          { icon: Eye,         label: "Scroll depth and attention mapping" },
-          { icon: Clock,       label: "Time-based engagement metrics" },
-          { icon: Globe,       label: "Cross-device and cross-platform tracking" },
-        ],
-      },
-      right: {
-        kind: "kpis",
-        rows: [
-          { label: "Data Points/Second",  value: "1,000+", bgClass: "bg-blue-50",   textClass: "text-blue-600" },
-          { label: "Processing Latency", value: "<50ms",  bgClass: "bg-green-50",  textClass: "text-green-600" },
-          { label: "Privacy Compliant",  value: "GDPR + CCPA", bgClass: "bg-purple-50", textClass: "text-purple-600" },
-        ],
-      },
+      emoji: "📝",
+      badge: "Content Creators",
+      title: "Bloggers & Writers",
+      description: "Optimize your articles and posts for maximum engagement",
+      features: ["Blog post optimization", "Newsletter performance", "Social media content"],
     },
     {
-      value: "ai-analysis",
-      label: "AI Analysis",
-      left: {
-        headingIcon: Cpu,
-        heading: "Advanced AI Processing",
-        description:
-          "Our proprietary AI models analyze patterns, predict user behavior, and identify optimization opportunities in real-time.",
-        bullets: [
-          { icon: Brain,       label: "Machine learning pattern recognition" },
-          { icon: TrendingUp,  label: "Predictive behavior modeling" },
-          { icon: Target,      label: "Conversion probability scoring" },
-          { icon: Zap,         label: "Real-time anomaly detection" },
-        ],
-      },
-      right: {
-        kind: "progress",
-        title: "AI Model Performance",
-        bars: [
-          { label: "Pattern Recognition", percent: 95 },
-          { label: "Prediction Accuracy", percent: 92 },
-          { label: "Processing Speed",   percent: 98 },
-        ],
-      },
+      emoji: "📈",
+      badge: "Marketing Teams",
+      title: "Digital Marketers",
+      description: "Boost campaign performance with data-driven insights",
+      features: ["Landing page optimization", "Email campaign analysis", "A/B testing automation"],
     },
     {
-      value: "insights",
-      label: "Smart Insights",
-      left: {
-        headingIcon: MessageCircle,
-        heading: "Conversational Intelligence",
-        description:
-          "Ask questions in natural language and get instant, actionable insights about your content performance.",
-        bullets: [
-          { icon: MessageCircle, label: "Natural language query processing" },
-          { icon: Brain,         label: "Context-aware recommendations" },
-          { icon: BarChart3,     label: "Visual data storytelling" },
-          { icon: Lightbulb,     label: "Proactive optimization suggestions" },
-        ],
-      },
-      right: {
-        kind: "chat",
-        title: "AI Chat Interface",
-        messages: [
-          { from: "user", text: '“How can I improve my conversion rate?”' },
-          {
-            from: "ai",
-            text:
-              "Based on your data, moving your CTA 150px higher could increase conversions by 23%. Users currently scroll past it 34% of the time.",
-          },
-          { from: "user", text: '“Which content performs best?”' },
-          {
-            from: "ai",
-            text:
-              "Your tutorial content has 2.3x higher engagement. Consider creating more how-to guides.",
-          },
-        ],
-      },
+      emoji: "🏢",
+      badge: "Enterprise",
+      title: "Large Organizations",
+      description: "Scale content optimization across teams and departments",
+      features: ["Multi-site management", "Team collaboration", "Custom integrations"],
+    },
+  ],
+}
+
+// Competitive Advantage Section Data
+export const competitiveAdvantage = {
+  heading: "Why Choose optml.ai?",
+  subheading: "See how we compare to traditional analytics and optimization tools.",
+  comparisonTable: [
+    {
+      feature: "Setup Time",
+      traditional: "Hours to Days",
+      optml: "2 Minutes",
     },
     {
-      value: "optimization",
-      label: "Optimization",
-      left: {
-        headingIcon: Target,
-        heading: "Automated Optimization",
-        description:
-          "Implement AI-driven recommendations with one click, or get detailed instructions for manual optimization.",
-        bullets: [
-          { icon: Zap,        label: "One-click optimization implementation" },
-          { icon: BarChart3,  label: "A/B testing automation" },
-          { icon: TrendingUp, label: "Performance tracking and reporting" },
-          { icon: Shield,     label: "Safe rollback capabilities" },
-        ],
-      },
-      right: {
-        kind: "grid",
-        title: "Optimization Results",
-        tiles: [
-          { value: "+40%", label: "Avg. Engagement",    bgClass: "bg-green-50",  textClass: "text-green-600" },
-          { value: "+28%", label: "Conversion Rate",    bgClass: "bg-blue-50",   textClass: "text-blue-600" },
-          { value: "-35%", label: "Bounce Rate",        bgClass: "bg-purple-50", textClass: "text-purple-600" },
-          { value: "+52%", label: "Time on Page",       bgClass: "bg-orange-50", textClass: "text-orange-600" },
-        ],
-      },
+      feature: "Learning Curve",
+      traditional: "Steep",
+      optml: "Conversational",
     },
-  ] as const,
-} as const;
+    {
+      feature: "Insights",
+      traditional: "Raw Data",
+      optml: "AI Recommendations",
+    },
+    {
+      feature: "Real-time Analysis",
+      traditional: "❌",
+      optml: "✅",
+    },
+    {
+      feature: "Natural Language Queries",
+      traditional: "❌",
+      optml: "✅",
+    },
+    {
+      feature: "Automated Optimization",
+      traditional: "❌",
+      optml: "✅",
+    },
+    {
+      feature: "Cross-platform Support",
+      traditional: "Limited",
+      optml: "Universal",
+    },
+  ],
+}
 
 
 
 
 // CTA
 export const ctaData = {
-    title: "Ready to Start Optimizing?",
-    description:
-      "Join thousands of content creators who are already using optml.ai to create more engaging, effective content.",
-    buttonText: "Install Extension Free",
-    buttonLink: "/signup",
-    demoButtonText: "Schedule Demo",
-    disclaimer: "Free forever • No credit card required • Premium features available",
-  }
+  title: "Ready to Start Optimizing?",
+  description:
+    "Join thousands of content creators who are already using optml.ai to create more engaging, effective content.",
+  buttonText: "Install Extension Free",
+  buttonLink: "/signup",
+  demoButtonText: "Schedule Demo",
+  disclaimer: "Free forever • No credit card required • Premium features available",
+}
