@@ -2,13 +2,11 @@
 import type React from "react"
 
 import Link from "next/link"
-import { Eye, MousePointer, Brain, Sparkles, ArrowRight, Check, Zap, MessageCircle, BarChart3 } from "lucide-react"
+import { Brain, Sparkles, ArrowRight, Zap, MessageCircle, BarChart3 } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
 import { Badge } from "@/components/ui/badge"
-import Footer from "@/components/footer/footer"
 
 export default function ComingSoonPage() {
 
@@ -54,9 +52,9 @@ export default function ComingSoonPage() {
                 <section className="w-full py-12 md:py-20 bg-muted/30">
                     <div className="container mx-auto max-w-6xl px-4 md:px-6">
                         <div className="text-center mb-12">
-                            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl mb-4">What's Coming</h2>
+                            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl mb-4">What&apos;s Coming</h2>
                             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-                                A glimpse into the intelligent content analytics platform we're building
+                                A glimpse into the intelligent content analytics platform we&apos;re building
                             </p>
                         </div>
 
@@ -69,8 +67,8 @@ export default function ComingSoonPage() {
                                     </div>
                                     <h3 className="text-xl font-bold">Natural Language Queries</h3>
                                     <p className="text-muted-foreground leading-relaxed min-h-35">
-                                        Ask questions like "Which ad placement is my ad best suited for?" or "How can I drive better
-                                        conversion for my e-commerce ads?"
+                                        Ask questions like &quot;Which ad placement is my ad best suited for?&quot; or &quot;How can I drive better
+                                        conversion for my e-commerce ads?&quot;
                                     </p>
                                     <Badge variant="secondary" className="w-fit">
                                         AI-Powered
