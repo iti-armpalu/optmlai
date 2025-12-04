@@ -126,6 +126,32 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
           </div>
         </section>
 
+                {/* Results */}
+                <section className="w-full py-12 md:py-24 lg:py-32 bg-muted/50">
+          <div className="container mx-auto max-w-7xl px-4 md:px-6">
+            <div className="text-center mb-12">
+              <Badge variant="green" className={"w-fit mb-4"}>
+                The Results
+              </Badge>
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl mb-4">{study.results.title}</h2>
+              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">{study.results.description}</p>
+            </div>
+
+            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4 mb-12">
+              {study.results.metrics.map((metric, index) => (
+                <Card key={index} className="text-center">
+                  <CardContent className="pt-6">
+                    <div className={`text-4xl font-bold text-green-500 mb-2`}>{metric.value}</div>
+                    <div className="text-sm text-muted-foreground mb-2">{metric.label}</div>
+                    <div className={`text-xs text-green-500`}>{metric.change}</div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+
+          </div>
+        </section>
+
         {/* Company Profile & Timeline Section */}
         <section className="w-full py-12 md:py-16 border-b bg-muted/30">
           <div className="container mx-auto max-w-7xl px-4 md:px-6">
@@ -266,32 +292,6 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
                 </div>
               </div>
             </div>
-          </div>
-        </section>
-
-        {/* Results */}
-        <section className="w-full py-12 md:py-24 lg:py-32 bg-muted/50">
-          <div className="container mx-auto max-w-7xl px-4 md:px-6">
-            <div className="text-center mb-12">
-              <Badge variant="green" className={"w-fit mb-4"}>
-                The Results
-              </Badge>
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl mb-4">{study.results.title}</h2>
-              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">{study.results.description}</p>
-            </div>
-
-            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4 mb-12">
-              {study.results.metrics.map((metric, index) => (
-                <Card key={index} className="text-center">
-                  <CardContent className="pt-6">
-                    <div className={`text-4xl font-bold text-green-500 mb-2`}>{metric.value}</div>
-                    <div className="text-sm text-muted-foreground mb-2">{metric.label}</div>
-                    <div className={`text-xs text-green-500`}>{metric.change}</div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-
           </div>
         </section>
 
